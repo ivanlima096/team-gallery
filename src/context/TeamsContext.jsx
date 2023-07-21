@@ -30,11 +30,22 @@ export function TeamsContextProvider({ children }) {
     return teams.find(team => team.id === +teamId)
   }
 
+  const updateTeam = (teamId, newAttributes) => {
+    setTeams(currentState => {
+      const teamIndex = currentState.findIndex(team => team.id === +teamId)
+      const updatedTeams = [...currentState]
+      Object.assign(updatedTeams[teamIndex], newAttributes)
+      localStorage.setItem('ilo-teams', JSON.stringify(updatedTeams))
+      return updatedTeams
+    })
+  }
+
   const teamGallery = {
     teams,
     addTeam,
     deleteTeam,
-    getTeam
+    getTeam,
+    updateTeam
   }
 
   return (

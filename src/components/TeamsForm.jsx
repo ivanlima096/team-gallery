@@ -1,6 +1,8 @@
 import { useRef, useState } from "react"
 import TeamGallery from "../entities/TeamGallery";
 import useTeamGallery from "../hooks/useTeamGallery";
+import UpdateTeams from "../Pages/Teams/UpdateTeams";
+import { useNavigate } from "react-router-dom";
 
 export default function TeamsForm({ teamToUpdate }) {
   const defaultTeam = {
@@ -17,8 +19,9 @@ export default function TeamsForm({ teamToUpdate }) {
   }
 
   const [teams, setTeams] = useState(teamToUpdate ? teamToUpdate : defaultTeam)
-  const { addTeam } = useTeamGallery()
+  const { addTeam, updateTeam } = useTeamGallery()
   const inputRef = useRef(null)
+  const navigate = useNavigate()
 
   const handleChange = (ev => {
     const { name, value, type } = ev.target;
@@ -44,11 +47,18 @@ export default function TeamsForm({ teamToUpdate }) {
     ev.preventDefault()
 
     try {
-      const teamGallery = new TeamGallery(teams)
-      addTeam(teamGallery)
-      alert("Time cadastrado com sucesso!")
-      inputRef.current.focus()
-      setTeams(defaultTeam)
+      if (teamToUpdate) {
+        updateTeam(teamToUpdate.id, teams)
+        alert("Time atualizado com sucesso!")
+        navigate(`/teams/${teamToUpdate.id}`)
+      } else {
+        const teamGallery = new TeamGallery(teams)
+        addTeam(teamGallery)
+        alert("Time cadastrado com sucesso!")
+        inputRef.current.focus()
+        setTeams(defaultTeam)
+        navigate(`/teams`)
+      }
     } catch (error) {
       alert(error);
     }
@@ -93,7 +103,7 @@ export default function TeamsForm({ teamToUpdate }) {
             />
           </div>
           <div>
-            <label htmlFor="fans">Torcedores:</label>
+            <label htmlFor="fans">Torcedores (em milhões):</label>
             <input
               type="number"
               name="fans"
@@ -114,7 +124,7 @@ export default function TeamsForm({ teamToUpdate }) {
               required
               min={0.00}
               step={1.0}
-              value={teams.titles.leagueNational}
+              value={teams.leagueNational}
               onChange={handleChange}
             />
           </div>
@@ -127,7 +137,7 @@ export default function TeamsForm({ teamToUpdate }) {
               required
               min={0.00}
               step={1.0}
-              value={teams.titles.continental}
+              value={teams.continental}
               onChange={handleChange}
             />
           </div>
@@ -140,7 +150,7 @@ export default function TeamsForm({ teamToUpdate }) {
               required
               min={0.00}
               step={1.0}
-              value={teams.titles.cupNational}
+              value={teams.cupNational}
               onChange={handleChange}
             />
           </div>

@@ -6,13 +6,14 @@ export default function TeamsTable() {
   const { teams } = useTeamGallery();
 
   return (
-    <table>
+    <table
+      className="table">
       <thead>
         <tr>
           <th>ID</th>
+          <th>Símbolo</th>
           <th>Nome</th>
-          <th>Em Estoque</th>
-          <th>Categoria</th>
+          <th>Nacionalidade</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -20,17 +21,21 @@ export default function TeamsTable() {
         {teams.map((team) => (
           <tr key={team.id}>
             <td>{team.id}</td>
+            <td><img src={team.img} alt={team.name} /></td>
             <td>{team.name}</td>
-            <td>{team.quantity} unid.</td>
-            <td>{team.category}</td>
+            <td>{team.nacionality}</td>
             <td>
-              <Link to={`/teams/${team.id}`} className="button is-primary is-small">
-                Ver
-              </Link>
-              <Link to={`/teams/${team.id}/update`} className="button is-small">
-                Atualizar
-              </Link>
-              <DeleteButton teamId={team.id} teamName={team.name} />
+              <button>
+                <Link to={`/teams/${team.id}`} className="button is-primary is-small">
+                  Ver
+                </Link>
+              </button>
+              <button>
+                <Link to={`/teams/${team.id}/update`} className="button is-small">
+                  Atualizar
+                </Link>
+              </button>
+              <DeleteButton className="deleteButton" teamId={team.id} teamName={team.name} />
             </td>
           </tr>
         ))}
