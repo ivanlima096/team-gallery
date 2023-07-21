@@ -18,9 +18,23 @@ export function TeamsContextProvider({ children }) {
     })
   }
 
+  const deleteTeam = (teamId) => {
+    setTeams(currentState => {
+      const updatedTeams = currentState.filter(team => team.id !== teamId)
+      localStorage.setItem('ilo-teams', JSON.stringify(updatedTeams))
+      return updatedTeams
+    })
+  }
+
+  const getTeam = (teamId) => {
+    return teams.find(team => team.id === +teamId)
+  }
+
   const teamGallery = {
     teams,
-    addTeam
+    addTeam,
+    deleteTeam,
+    getTeam
   }
 
   return (

@@ -1,6 +1,6 @@
 import TeamsForm from "../../components/TeamsForm";
 
-export default function CreateTitles() {
+export default function CreateTeams() {
   return (
     <main>
 

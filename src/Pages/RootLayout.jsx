@@ -8,11 +8,11 @@ export default function RootLayout() {
       <header>
         <div className="logo">
           <Link to="/"><FaFutbol className="footballLogo" /></Link>
-          <Link to="/">Galeria de Títulos</Link>
+          <Link to="/">Galeria de Times</Link>
         </div>
         <nav>
           <Link className="link" to="/">Início</Link>
-          <Link className="link" to="/titles">Títulos</Link>
+          <Link className="link" to="/teams">Times</Link>
         </nav>
       </header>
       <div>

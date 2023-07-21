@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom"
 import RootLayout from "./Pages/RootLayout"
 import Home from "./Pages/Home"
-import TitlesLayout from "./Pages/Titles/TitlesLayout"
-import ListTitles from "./Pages/Titles/ListTitles"
-import CreateTitles from "./Pages/Titles/CreateTitles"
-import ShowTitle from "./Pages/Titles/ShowTitle"
-import UpdateTitle from "./Pages/Titles/UpdateTitle"
+import TeamsLayout from "./Pages/Teams/TeamsLayout"
+import ListTeams from "./Pages/Teams/ListTeam"
+import CreateTeams from "./Pages/Teams/CreateTeams"
+import ShowTeam from "./Pages/Teams/ShowTeam"
+import UpdateTeam from "./Pages/Teams/UpdateTeams"
 
 const router = createBrowserRouter([{
   path: "/",
@@ -13,12 +13,12 @@ const router = createBrowserRouter([{
   children: [
     { index: true, element: <Home /> },
     {
-      path: "titles", element: <TitlesLayout />,
+      path: "teams", element: <TeamsLayout />,
       children: [
-        { index: true, element: <ListTitles /> },
-        { path: "new", element: <CreateTitles /> },
-        { path: ":id", element: <ShowTitle /> },
-        { path: ":id/update", element: <UpdateTitle /> },
+        { index: true, element: <ListTeams /> },
+        { path: "new", element: <CreateTeams /> },
+        { path: ":id", element: <ShowTeam /> },
+        { path: ":id/update", element: <UpdateTeam /> },
       ]
     }
   ]

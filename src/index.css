@@ -98,14 +98,14 @@ button {
   transition: border-color 0.25s;
 }
 
-.listTitle {
+.listTeam {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 1rem;
 }
 
-.titleOptions {
+.teamOptions {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -117,7 +117,7 @@ button {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.titleOptions a {
+.teamOptions a {
   background-color: #232323;
   width: 20%;
   aspect-ratio: 1/1;
@@ -131,12 +131,12 @@ button {
   color: #656464;
 }
 
-.titleOptions .icon {
+.teamOptions .icon {
   margin-bottom: 0.3rem;
 }
 
-.titleOption.active,
-.titleOptions a:hover {
+.teamOption.active,
+.teamOptions a:hover {
   background-color: #807f7f;
   color: #f9f9f9;
   transition: 300ms all ease;
@@ -300,10 +300,6 @@ button:focus-visible {
   padding: 0;
 }
 
-.buttons button {
-  width: 10rem;
-}
-
 .title {
   text-align: center;
   display: flex;
@@ -321,6 +317,12 @@ button:focus-visible {
   background-color: transparent;
 }
 
+.buttons .deleteButton:hover {
+  background-color: rgb(237, 106, 91);
+  border-radius: .4rem;
+  scale: 1.1;
+}
+
 .description {
   display: flex;
   justify-content: center;
@@ -336,11 +338,11 @@ button:focus-visible {
     display: none;
   }
 
-  .titleOptions {
+  .teamOptions {
     width: 100%;
   }
 
-  .titleOptions a {
+  .teamOptions a {
     font-size: .6rem;
   }
 
@@ -377,7 +379,4 @@ button:focus-visible {
     border-radius: .5rem;
   }
 
-  .buttons button {
-    width: 100%;
-  }
 }
