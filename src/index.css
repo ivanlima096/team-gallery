@@ -1,0 +1,383 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+a {
+  font-weight: 500;
+  color: #f9f9f9;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #656464;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #232323;
+  color: #F9F9F9;
+}
+
+header,
+footer {
+  flex: 0 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #121212;
+  height: 8%;
+  width: 100%;
+}
+
+header {
+  border-bottom: 1px solid #656464;
+}
+
+footer {
+  background-color: #121212;
+  color: #F9F9F9;
+  padding: 0.5rem 2rem;
+  border-top: 1px solid #656464;
+}
+
+.logo {
+  margin-right: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+main {
+  padding: 0 0.5rem;
+  flex: 1;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 60.8vh;
+}
+
+.footballLogo {
+  margin-right: 0.5rem;
+  display: flex;
+}
+
+.link {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.links a {
+  padding: 0.6rem;
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #656464;
+  color: #F9F9F9;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.listTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.titleOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+  background-color: #121212;
+  width: 30rem;
+  margin: 1rem auto;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.titleOptions a {
+  background-color: #232323;
+  width: 20%;
+  aspect-ratio: 1/1;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: #656464;
+}
+
+.titleOptions .icon {
+  margin-bottom: 0.3rem;
+}
+
+.titleOption.active,
+.titleOptions a:hover {
+  background-color: #807f7f;
+  color: #f9f9f9;
+  transition: 300ms all ease;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.row div {
+  flex: 1 0 16rem;
+}
+
+form {
+  margin: 1rem auto;
+  max-width: 80rem;
+  padding: 2rem 0;
+  border: 1px solid #656464;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+input,
+textarea {
+  background-color: #1c1a1d;
+  border-radius: 0.25rem;
+  border: 0;
+  color: #fefefe;
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+button:hover {
+  border-color: #F9F9F9;
+  color: #F9F9F9;
+  background-color: transparent;
+  transition: 300ms all ease;
+  scale: 1.05;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.cardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
+.teamCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem .3rem;
+  min-width: 320px;
+  width: 30rem;
+  height: auto;
+  background-color: #121212;
+  border: 1px solid transparent;
+  border-radius: 1.5rem;
+  margin: .5rem;
+}
+
+.teamCard img {
+  width: 80%;
+  height: 30%;
+  padding: 0.5rem 3.5rem;
+  object-fit: contain;
+  background-color: #232323;
+  border-radius: 1rem;
+  margin: .2rem auto;
+}
+
+.teamCard h2 {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: .2rem auto;
+  width: 80%;
+  padding: .5rem;
+  background-color: #232323;
+  border-radius: .5rem;
+}
+
+.nationality-fans {
+  display: flex;
+  width: 80%;
+  height: 5rem;
+  justify-content: space-between;
+}
+
+.nationality,
+.fans {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  aspect-ratio: 4/3;
+  margin: .2rem 0;
+  background-color: #232323;
+  border-radius: .5rem;
+  line-height: 2rem;
+  line-height: 2rem;
+}
+
+.nationality {
+  margin-right: .15rem;
+  text-align: center;
+}
+
+.fans {
+  margin-left: .15rem;
+  text-align: center;
+}
+
+.nationality-fans span,
+.nationality-fans h3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.titles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  height: 4rem;
+  margin: .6rem 0;
+
+}
+
+.description,
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  height: 4rem;
+  margin: .2rem 0;
+  padding: 1.2rem;
+  background-color: #232323;
+  border-radius: .5rem;
+}
+
+.buttons {
+  width: 80%;
+  padding: 0;
+}
+
+.buttons button {
+  width: 10rem;
+}
+
+.title {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: .2rem 3.8rem;
+  line-height: 2rem;
+  width: 25%;
+  background-color: #232323;
+  border-radius: .5rem;
+}
+
+.buttons {
+  background-color: transparent;
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+  text-align: center;
+  height: 4rem;
+}
+
+
+@media screen and (max-width: 560px) {
+  header .logo a:nth-child(2) {
+    display: none;
+  }
+
+  .titleOptions {
+    width: 100%;
+  }
+
+  .titleOptions a {
+    font-size: .6rem;
+  }
+
+  form {
+    border: none;
+  }
+
+  .links a {
+    font-size: 1rem;
+    padding: .2rem;
+  }
+
+  .titles {
+    margin: .2rem 0;
+    padding: 1.2rem;
+    background-color: #232323;
+    border-radius: .5rem;
+  }
+
+  .fans span {
+    font-size: .8rem;
+  }
+
+  .title {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    line-height: 2rem;
+    width: 25%;
+    background-color: #232323;
+    border-radius: .5rem;
+  }
+
+  .buttons button {
+    width: 100%;
+  }
+}
